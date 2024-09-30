@@ -1,0 +1,47 @@
+/* Delete message */
+
+.delMsgDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.delMsgSpan {
+    cursor:pointer;
+    color: var(--rv);
+    font-size: small;
+
+    text-decoration: none;
+}
+
+.delMsgSpan:hover{
+    text-decoration: underline;
+    text-shadow: 0 0 5px var(--rv);
+}
+
+.verMsgSpan {
+    cursor:pointer;
+    color: var(--gv);
+    font-size: small;
+
+    text-decoration: none;
+}
+
+.verMsgSpan:hover{
+    text-decoration: underline;
+    text-shadow: 0 0 5px var(--gv);
+}
+
+.unverMsgSpan {
+    cursor:pointer;
+    color: var(--yv);
+    font-size: small;
+
+    text-decoration: none;
+}
+
+.unverMsgSpan:hover{
+    text-decoration: underline;
+    text-shadow: 0 0 5px var(--yv);
+}
