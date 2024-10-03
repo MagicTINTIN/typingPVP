@@ -34,9 +34,9 @@ $db = dbConnect();
     <meta property="og:title" content="TypingPVP">
     <meta property="og:description" content="Testez vos skills de dactylographie en équipe">
 
-    <!-- <meta property="og:image" content="https://etud.insa-toulouse.fr/~serviere/citations/images/favicon.png">
+    <meta property="og:image" content="https://etud.insa-toulouse.fr/~serviere/typingPVP/images/favicon.png">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:alt" content="Logo of TypingPVP"> -->
+    <meta property="og:image:alt" content="Logo of TypingPVP">
 
     <meta property="og:url" content="https://etud.insa-toulouse.fr/~serviere/typingPVP" />
     <meta data-react-helmet="true" name="theme-color" content="#43ceed" />
