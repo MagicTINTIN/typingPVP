@@ -42,7 +42,7 @@ $db = dbConnect();
     <meta data-react-helmet="true" name="theme-color" content="#43ceed" />
 </head>
 
-<body>
+<body class="semiTilesBG">
     <?php include_once("./includes/nojs.php"); ?>
     <?php include_once("./includes/infoanderror.php"); ?>
     <main>

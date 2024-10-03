@@ -1,14 +1,32 @@
+/* 
+https://colors.softplus.fr/?1567FF-ACC8FFL-3F68B2-FFA415-FFDDACL-B2863F-FFDE15-FFF1ACL-B2A23F-15E2FF-ACF1FFL-3FA4B2
+https://colors.softplus.fr/?0FE1FF-3CA3B2-FF2D0F-FF8472L-B24B3C-FFA50F-B2863C-0FFFA5-72FFC9L-3CB286
+*/
+
 :root {
-    --r: #96031A;
-    --rv: #C9818C;
-    --re: #FA2916;
-    --g: #0A8754;
-    --gv: #83C3A9;
-    --b: #3066BE;
-    --bv: #96B3DE;
-    --be: #30B8BF;
-    --y: #FAA916;
-    --yv: #FBD48A;
+    --rd: #B24B3C;
+    --rv: #FF8472;
+    --re: #FF2D0F;
+    
+    --g: #0FFFA5;
+    --gv: #72FFC9;
+    --gd: #3CB286;
+
+    --o: #FFA415;
+    --ov: #FFDDAC;
+    --od: #B2863F;
+
+    --c: #15E2FF;
+    --cv: #ACF1FF;
+    --cd: #3FA4B2;
+
+    --b: #1567FF;
+    --bv: #ACC8FF;
+    --bd: #3F68B2;
+    --y: #FFDE15;
+    --yv: #FFF1AC;
+    --yd: #B2A23F;
+
     --n: #1B1B1E;
     --nno: #1B1B1E00;
     --nho: #1B1B1E99;
@@ -16,14 +34,4 @@
     --nv: #444146;
     --wv: #B4B3B6;
     --gray: #6D676E;
-}
-
-@font-face {
-    font-family: "citationFont";
-    src: url("./LTPerfume-2.ttf");
-}
-
-@font-face {
-    font-family: "signatureFont";
-    src: url("./Thesignature.ttf");
 }
