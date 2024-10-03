@@ -109,8 +109,8 @@ input:-webkit-autofill:active {
 .semiTilesBG {
     --s: 59px;
     /* control the size*/
-    --c1: #ffffff;
-    --c2: #339ec1;
+    --c1: var(--cmv);
+    --c2: var(--cv);
 
     --_g: #0000 8%, var(--c1) 0 17%, #0000 0 58%;
     background:
@@ -205,7 +205,7 @@ input:-webkit-autofill:active {
 }
 
 #popUpErrorMessageClose {
-    background-color: var(--re);
+    background-color: var(--rv);
 }
 
 #popUpErrorMessageClose:hover {
@@ -213,7 +213,7 @@ input:-webkit-autofill:active {
 }
 
 #popUpInfoMessageClose {
-    background-color: var(--be);
+    background-color: var(--bv);
 }
 
 #popUpInfoMessageClose:hover {
