@@ -4,8 +4,8 @@
 $promoted = array('serviere', 'v_lasser');
 $admin = array('serviere', 'v_lasser');
 $username = 'serviere'; #phpCAS::getUser();
-include_once("includes/db.php");
-include_once("includes/time.php");
+include_once("includes/fcts/db.php");
+include_once("includes/fcts/time.php");
 $db = dbConnect();
 
 ?>
@@ -43,8 +43,8 @@ $db = dbConnect();
 </head>
 
 <body class="semiTilesBG">
-    <?php include_once("./includes/nojs.php"); ?>
-    <?php include_once("./includes/infoanderror.php"); ?>
+    <?php include_once("./includes/modules/nojs.php"); ?>
+    <?php include_once("./includes/modules/infoanderror.php"); ?>
     <main>
         <h1>TypingPVP</h1>
         <form method="post">
