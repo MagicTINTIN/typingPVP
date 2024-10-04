@@ -1,8 +1,7 @@
 <body class="semiTilesBG">
-    <?php include_once("./includes/modules/nojs.php"); ?>
-    <?php include_once("./includes/modules/infoanderror.php"); ?>
+    <?php include_once("includes/parts/bodyBegin.php"); ?>
     <main>
         <h1>TypingPVP</h1>
-        <?php include("./joinGameForm.php"); ?>
+        <?php include("includes/parts/joinGameForm.php"); ?>
     </main>
     

@@ -3,6 +3,7 @@ $msgtxt = [
     ["Non", "No"],
     ["Oui", "Yes"]
 ];
+$lng = 0;
 
 if(isset($errorMessage)) : ?>
     <div id="errorMsg" role="alert" class="msg errorMsg errorAnim">
