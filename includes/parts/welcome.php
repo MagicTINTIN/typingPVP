@@ -5,5 +5,4 @@
         <h1>TypingPVP</h1>
         <?php include("./joinGameForm.php"); ?>
     </main>
-    <script src="./scripts/common.js"></script>
-</body>
+    

@@ -9,6 +9,10 @@ red + green : https://colors.softplus.fr/?0FE1FF-3CA3B2-FF2D0F-FF8472L-B24B3C-FF
     --rv: #FF8472;
     --re: #FF2D0F;
 
+    --errFG: #721c24;
+    --errBG: #f8d7da;
+    --errBD: #f5c6cb;
+
     --g: #0FFFA5;
     --gv: #72FFC9;
     --gd: #3CB286;

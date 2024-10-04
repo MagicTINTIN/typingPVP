@@ -43,8 +43,8 @@ function copytcb(tocopy) {
     }
 }
 
-autoGrow(document.getElementById("citationInput"));
+// autoGrow(document.getElementById("citationInput"));
 
-window.onresize = function(event) {
-    autoGrow(document.getElementById("citationInput"));
-};
+// window.onresize = function(event) {
+//     autoGrow(document.getElementById("citationInput"));
+// };

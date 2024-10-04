@@ -225,6 +225,29 @@ input:-webkit-autofill:active {
     background-color: var(--n);
 }
 
+#errorDiv {
+    background-color: var(--errBG);
+    color: var(--errFG);
+    border: 2px solid var(--errBD);
+    padding: 10px;
+    margin: 20px 0;
+    width: 80vw;
+    position: fixed;
+    top: 20vh;
+    left: 10vw;
+    max-height: 50vh;
+    border-radius: max(2vh, 2vw);
+    display: none;
+}
+
+#errorDiv h4 {
+    margin-top: 0;
+}
+
+#errorDiv li {
+    list-style: none;
+}
+
 .confirmForm {
     width: 100%;
 
