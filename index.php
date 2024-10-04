@@ -42,22 +42,8 @@ $db = dbConnect();
     <meta data-react-helmet="true" name="theme-color" content="#43ceed" />
 </head>
 
-<body class="semiTilesBG">
-    <?php include_once("./includes/modules/nojs.php"); ?>
-    <?php include_once("./includes/modules/infoanderror.php"); ?>
-    <main>
-        <h1>TypingPVP</h1>
-        <form method="post">
-            <input type="text" class="input authorDateInput authorDateCommon gameInput" name="gameInput" id="gameInput" required maxlength="250" placeholder="Nom de la partie">
-                
-
-            <div class='zone3'>
-                <input type="submit" class="input citationSubmit" id="enterGame" value="Rejoindre la partie" name="enterGame">
-            </div>
-
-        </form>
-    </main>
-    <script src="./scripts/common.js"></script>
-</body>
+<?php 
+include_once("includes/parts/welcome.php")
+?>
 
 </html>
