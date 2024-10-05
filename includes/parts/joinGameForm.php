@@ -1,4 +1,4 @@
-<form method="post">
+<form method="post" class="connectionForm">
     <input type="text" class="input authorDateInput authorDateCommon gameInput" name="gameInput" id="gameInput" required maxlength="250" placeholder="Nom de la partie">
 
 

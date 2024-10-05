@@ -10,6 +10,7 @@
     <script src="./scripts/commonhead.js"></script>
     <link href="./styles/animations.css" rel="stylesheet">
     <link href="./styles/vars.css" rel="stylesheet">
+    <link href="./styles/parts.css" rel="stylesheet">
     <link href="./styles/common.css" rel="stylesheet">
     <meta name="author" content="MagicTINTIN, Atsuyo64">
     <meta name="description" content="Testez vos skills de dactylographie en équipe">

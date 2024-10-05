@@ -1,0 +1,9 @@
+.connectionForm {
+    width: 50vw;
+    height: 50vh;
+    position: fixed;
+    top: 25vh;
+    left: 2vw;
+    background-color: var(--cvv);
+    border-radius: min(5vh, 5vw);
+}
