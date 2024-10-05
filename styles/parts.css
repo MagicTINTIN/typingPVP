@@ -7,3 +7,45 @@
     background-color: var(--cvv);
     border-radius: min(5vh, 5vw);
 }
+
+
+/* HOST */
+
+.hostMain {
+    display: flex;
+    flex-direction: row;
+}
+
+.hostAside {
+    height: 100vh;
+    width: 30vw;
+    background-color: var(--cmv);
+    color: var(--n);
+}
+
+.hostUsrName {
+    border-radius: 10px;
+    width: 50%;
+    padding: 5px;
+    background-color: var(--cv);
+    color: var(--n);
+    text-align: center;
+    font-size: large;
+    margin: 2vh auto;
+    transition: all 0.2s;
+}
+
+.hostUsrName:hover {
+    background-color: var(--cvv);
+}
+
+.hostMainSection {
+    background-color: var(--w);
+    color: var(--n);
+    width: 70vw;
+    padding: 1vh;
+}
+
+.hostTitle {
+    color: var(--n);
+}

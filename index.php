@@ -1,9 +1,9 @@
 <?php session_start();
 
 // include_once("includes/cas.php");
-$promoted = array('serviere', 'v_lasser');
-$admin = array('serviere', 'v_lasser');
-$username = 'serviere'; #phpCAS::getUser();
+// $promoted = array('serviere', 'v_lasser');
+// $admin = array('serviere', 'v_lasser');
+// $username = 'serviere'; #phpCAS::getUser();
 include_once("includes/fcts/db.php");
 include_once("includes/fcts/time.php");
 $db = dbConnect();
