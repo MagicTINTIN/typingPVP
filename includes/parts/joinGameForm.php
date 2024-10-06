@@ -9,7 +9,5 @@
 
     </form>
 
-    <form method="post" class="connectionForm" action="host">
-        <input type="submit" class="input createSubmit" id="createGame" value="Créer une partie" name="createGame">
-    </form>
+    <a href="host">Créer une partie</a>
 </div>

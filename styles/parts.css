@@ -1,3 +1,5 @@
+/* ############### WELCOME ############### */
+
 .joinGameForms {
     width: 50vw;
     height: 50vh;
@@ -9,21 +11,21 @@
 }
 
 
-/* HOST */
+/* ############### HOST ############### */
 
-.hostMain {
+#hostMain {
     display: flex;
     flex-direction: row;
 }
 
-.hostAside {
+#hostAside {
     height: 100vh;
     width: 30vw;
     background-color: var(--cmv);
     color: var(--n);
 }
 
-.hostUsrName {
+#hostUsrName {
     border-radius: 10px;
     width: 50%;
     padding: 5px;
@@ -32,20 +34,27 @@
     text-align: center;
     font-size: large;
     margin: 2vh auto;
-    transition: all 0.2s;
 }
 
-.hostUsrName:hover {
+#hostUsrName:hover {
     background-color: var(--cvv);
 }
 
-.hostMainSection {
+#hostMainSection {
     background-color: var(--w);
     color: var(--n);
     width: 70vw;
     padding: 1vh;
+    overflow-y: auto;
 }
 
 .hostTitle {
     color: var(--n);
+}
+
+/* Admin */
+
+#hAdminActions {
+    display: flex;
+    flex-direction: column;
 }

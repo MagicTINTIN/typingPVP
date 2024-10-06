@@ -1,5 +1,10 @@
 /* ----------- DEFAULT CSS IS UGLY ----------- */
 
+* {
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
 html,
 body {
     margin: 0;
