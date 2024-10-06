@@ -34,16 +34,16 @@ body {
 }
 
 body {
-    color: var(--w);
+    color: var(--n);
 }
 
 a {
-    color: white;
+    color: var(--n);
     text-decoration: none;
 }
 
 a:visited {
-    color: white;
+    color: var(--n);
 }
 
 img {

@@ -8,8 +8,30 @@
     left: 2vw;
     background-color: var(--cvv);
     border-radius: min(5vh, 5vw);
+    padding: min(2vh, 2vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
+.jgH3 {
+    margin: 0 0 10px 0;
+}
+
+#publicGames {
+    width: 90%;
+    min-height: 10vh;
+    height: auto;
+    max-height: 20vh;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 10px;
+    border: solid 1px var(--wv);
+    background-color: var(--wvvv);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
 
 /* ############### HOST ############### */
 
@@ -125,7 +147,11 @@
     margin: 5px auto;
 }
 
-.saHostForm input, .saHostForm textarea {
+.aSaButton {
+    text-align: center;
+}
+
+.saHostForm input, .saHostForm textarea, .aSaButton, .aSaButton:visited {
     font-size: medium;
     background-color: var(--wvvv);
     border: solid 1px var(--wv);
@@ -135,7 +161,8 @@
 }
 
 .saHostForm input:hover, .saHostForm textarea:hover,
-.saHostForm input:focus, .saHostForm textarea:focus {
+.saHostForm input:focus, .saHostForm textarea:focus,
+.aSaButton:hover {
     background-color: var(--wvv);
 }
 
@@ -144,11 +171,11 @@
     overflow-y: auto;
 }
 
-.saHostForm input[type=submit] {
+.saHostForm input[type=submit], .aSaButton {
     cursor: pointer;
 }
 
-.saHostForm input[type=submit]:active {
+.saHostForm input[type=submit]:active, .aSaButton:active {
     background-color: var(--wv);
 }
 
@@ -156,16 +183,44 @@
     font-size: 20px;
 }
 
+/* ----- SIDE ----- */
+
+#hHostActions, #hAdminActions {
+    display: flex;
+    flex-direction: column;
+    margin: 5vh auto;
+}
+
+/*  --- Host --- */
+
+#hHostActions {
+    width: 100%;
+    margin: auto;
+    /* padding: 3px; */
+    border: solid 2px var(--wvv);
+    border-radius: min(1vh, 1vw);
+
+    background-color: var(--wvvv);
+    overflow-x: hidden;
+}
+
+.hHostPanelTitle {
+    margin: 0;
+    text-align: center;
+    background-color: var(--wvv);
+}
+
+#hHostActions p {
+    background-color: var(--wvvv);
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+}
+
 /* --- Admin --- */
 
 #hAdminActions {
-    display: flex;
-    flex-direction: column;
-}
-
-#hAdminActions {
     width: 100%;
-    margin: auto;
     /* padding: 3px; */
     border: solid 2px var(--rv);
     border-radius: min(1vh, 1vw);

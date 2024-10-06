@@ -6,6 +6,11 @@
             <div id="hostUsrName">
                 <?php echo $username ?>
             </div>
+
+            <section id="hHostActions">
+                <h4 class="hHostPanelTitle">HÉBERGER</h4>
+                <p>Dans cette page vous pouvez créer une partie facilement.</p>
+            </section>
             <?php if (in_array($username, $admin)) { ?>
                 <section id="hAdminActions">
                     <h4 class="hAdminPanelTitle">ADMIN PANEL</h4>
@@ -57,31 +62,33 @@
             </section>
             <section id="pastGames" class="hostSection">
                 <h2 class="hostSectionTitle">Parties précédemment créées</h2>
-                <?php
+                <div class="hostSectionContent">
+                    <?php
 
-                $db = dbConnect();
-                $oldgamesStatement = $db->prepare('SELECT * FROM tpvpGames WHERE host=:host AND visibility=:visibility');
-                $oldgamesStatement->execute([
-                    'host' => $username,
-                    'visibility' => -1
-                ]);
-                $oldgames = $oldgamesStatement->fetchAll();
+                    $db = dbConnect();
+                    $oldgamesStatement = $db->prepare('SELECT * FROM tpvpGames WHERE host=:host AND visibility=:visibility');
+                    $oldgamesStatement->execute([
+                        'host' => $username,
+                        'visibility' => -1
+                    ]);
+                    $oldgames = $oldgamesStatement->fetchAll();
 
-                $num = 0;
-                foreach (array_reverse($oldgames) as $key => $value) {
-                    $num++;
-                    $result = explode(";", $value["postStats"])
-                ?>
-                    <div class="oldGame" id="gameN-<?php echo $num ?>" style="background: linear-gradient(90deg, var(--ov) <?php echo $result[0] ?>, var(--cv) <?php echo $result[0] ?>);">
-                        <h4 class="oldGameName"><?php echo $value["name"] ?></h4>
-                        <span class="oldGameDate"><?php echo $value["started"] ?></span>
-                        <p class="oldGameDescription"><?php echo $result[1] ?></p>
-                    </div>
-                <?php
-                }
-                if (sizeof($oldgames) == 0) { ?>
-                    <span id="hostNoGamesFound">Aucune partie trouvée :/</span>
-                <?php } ?>
+                    $num = 0;
+                    foreach (array_reverse($oldgames) as $key => $value) {
+                        $num++;
+                        $result = explode(";", $value["postStats"])
+                    ?>
+                        <div class="oldGame" id="gameN-<?php echo $num ?>" style="background: linear-gradient(90deg, var(--ov) <?php echo $result[0] ?>, var(--cv) <?php echo $result[0] ?>);">
+                            <h4 class="oldGameName"><?php echo $value["name"] ?></h4>
+                            <span class="oldGameDate"><?php echo $value["started"] ?></span>
+                            <p class="oldGameDescription"><?php echo $result[1] ?></p>
+                        </div>
+                    <?php
+                    }
+                    if (sizeof($oldgames) == 0) { ?>
+                        <span id="hostNoGamesFound">Aucune partie trouvée :/</span>
+                    <?php } ?>
+                </div>
             </section>
         </section>
     </main>
