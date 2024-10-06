@@ -1,15 +1,17 @@
 <body> <!-- class="semiTilesBG" -->
     <?php include_once("includes/parts/bodyBegin.php"); ?>
     <!-- <nav class="hostNav"></nav> -->
-    <main class="hostMain">
+    <main id="hostMain">
         <aside id="hostAside">
             <div id="hostUsrName">
                 <?php echo $username ?>
             </div>
             <?php if (in_array($username, $admin)) { ?>
                 <section id="hAdminActions">
-                <span onclick="createMessage('confirm', 'Arrêter toutes les parties ?', 'Êtes-vous sûr de vouloir stopper toutes les parties en cours ? Toutes les données associées seront supprimées', 'stopAll', 'Arrêter')" class="hostAdminActionButton">Arrêter toutes les parties</span>
-                <span onclick="createMessage('confirm', 'Suppimer toutes les données ?', 'Êtes-vous sûr de vouloir supprimer toutes les données de toutes les bdd ?', 'deleteAll', 'Supprimer')" class="hostAdminActionButton">Supprimer toutes les données</span>
+                    <h4 class="hAdminPanelTitle">ADMIN PANEL</h4>
+                    <span onclick="createMessage('confirm', 'Arrêter toutes les parties ?', 'Êtes-vous sûr de vouloir stopper toutes les parties en cours ? Toutes les données associées seront supprimées', 'stopAll', 'Arrêter')" class="hostAdminActionButton">Arrêter toutes les parties</span>
+                    <hr class="adminPanelHR">
+                    <span onclick="createMessage('confirm', 'Suppimer toutes les données ?', 'Êtes-vous sûr de vouloir supprimer toutes les données de toutes les bdd ?', 'deleteAll', 'Supprimer')" class="hostAdminActionButton">Supprimer toutes les données</span>
                 </section>
             <?php } ?>
         </aside>
@@ -30,11 +32,11 @@
                     $runningGame = true;
                 };
                 ?>
-
+                <h2 class="hostSectionTitle"><?php echo $runningGame ? "Modifier la partie" : "Créer une partie" ?></h2>
                 <form method="post" class="<?php echo $runningGame ? "update" : "create" ?>GameForm">
                     <input class="hostInput" type="text" value="<?php echo $runningGame ? $games[0]["name"] : "Partie de " . $username ?>" <?php echo $runningGame ? "readony" : "" ?> required name="hNameInput" id="hNameInput" minlength="3" maxlength="50" placeholder="Nom de la partie">
-                    
-                    
+
+
                     <input type="submit" class="input joinSubmit" id="<?php echo $runningGame ? "update" : "create" ?>Game" value="<?php echo $runningGame ? "Mettre à jour" : "Créer" ?> la partie" name="<?php echo $runningGame ? "update" : "create" ?>Game">
                 </form>
                 <?php if (sizeof($games) == 1) { ?>
@@ -44,7 +46,7 @@
                 <?php } ?>
             </section>
             <section id="pastGames" class="hostSection">
-                <h2 class="hostTitle">Parties précédemment créées</h2>
+                <h2 class="hostSectionTitle">Parties précédemment créées</h2>
                 <?php
 
                 $db = dbConnect();

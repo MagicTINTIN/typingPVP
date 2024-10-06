@@ -5,6 +5,23 @@
     box-sizing: border-box;
 }
 
+.unselectable,
+.hostAdminActionButton,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+#hostUsrName {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
 html,
 body {
     margin: 0;
@@ -195,6 +212,7 @@ input:-webkit-autofill:active {
     color: var(--w);
     padding: 5px;
     transition: all .2s;
+    cursor: pointer;
 
     user-drag: none;
     user-select: none;
@@ -277,6 +295,8 @@ input:-webkit-autofill:active {
 
     font-family: 'Lucida Console', monospace;
     font-size: medium;
+
+    cursor: pointer;
 
     user-drag: none;
     user-select: none;

@@ -20,7 +20,7 @@
         <form class='confirmForm' method="post">
             <input type="hidden" id="hiddenInput" name="" value="" required>
             <input type="submit" id="confirmInput" class="popUpConfirmSub popUpButton" value="" name="">
-            <span class="cancelPopUp popUpButton" id="popUpConfirmMessageCncel" onclick="closeMsg(this)"><span>Cancel</span></span>
+            <span class="cancelPopUp popUpButton" id="popUpConfirmMessageCncel" onclick="closeMsg(this)"><span>Annuler</span></span>
         </form>
     </div>
     <span id="popUpConfirmMessageClose" class="closePopUp" onclick="closeMsg(this)"><span>X</span></span>
