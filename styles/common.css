@@ -65,6 +65,10 @@ textarea {
     resize: none;
 }
 
+.smaller {
+    font-size: 10px;
+}
+
 .endofPage,
 .bigbr {
     height: 15vh;
@@ -481,42 +485,6 @@ input:-webkit-autofill:active {
     padding: 10px;
     border-radius: 10px;
     z-index: 1000;
-}
-
-/* ----------- SCROLLBAR ----------- */
-
-::-webkit-scrollbar {
-    width: 0px;
-    background: #00000000;
-}
-
-::-webkit-scrollbar:hover {
-    width: 14px;
-    background: #00000000;
-}
-
-::-webkit-scrollbar-track {
-    border-radius: 8px;
-    background-color: #00000000;
-    border: none;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    background-clip: content-box;
-    background-color: var(--nv);
-    transition: all 1s;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    width: 0px;
-    border-radius: 4px;
-    background-color: var(--gray);
-}
-
-::-webkit-scrollbar-thumb:active {
-    background-color: var(--y);
 }
 
 /* ----------- NOT FOUND ----------- */

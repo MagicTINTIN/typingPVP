@@ -33,17 +33,27 @@
                 };
                 ?>
                 <h2 class="hostSectionTitle"><?php echo $runningGame ? "Modifier la partie" : "Créer une partie" ?></h2>
-                <form method="post" class="<?php echo $runningGame ? "update" : "create" ?>GameForm">
-                    <input class="hostInput" type="text" value="<?php echo $runningGame ? $games[0]["name"] : "Partie de " . $username ?>" <?php echo $runningGame ? "readony" : "" ?> required name="hNameInput" id="hNameInput" minlength="3" maxlength="50" placeholder="Nom de la partie">
+                <div class="hostSectionContent">
+                    <form method="post" class="saHostForm <?php echo $runningGame ? "update" : "create" ?>GameForm">
+                        <input class="hostInput" type="text" value="<?php echo $runningGame ? $games[0]["name"] : "Partie de " . $username ?>" <?php echo $runningGame ? "readonly" : "" ?> required name="hNameInput" id="hNameInput" minlength="3" maxlength="50" placeholder="Nom de la partie">
 
+                        <input class="hostInput" type="text" name="hCodeInput" id="hCodeInput" minlength="3" maxlength="50" placeholder="Code pour accéder à la partie (facultatif)">
 
-                    <input type="submit" class="input joinSubmit" id="<?php echo $runningGame ? "update" : "create" ?>Game" value="<?php echo $runningGame ? "Mettre à jour" : "Créer" ?> la partie" name="<?php echo $runningGame ? "update" : "create" ?>Game">
-                </form>
-                <?php if (sizeof($games) == 1) { ?>
-                    <form method="post" class="stopGameForm">
-                        <input type="submit" class="input stopSubmit" id="stopGame" value="Arrêter la partie" name="stopGame">
+                        <label class="container privateGame">Partie privée <span class="smaller">(nécessite d'avoir le nom de la partie pour rejoindre)</span>
+                            <input name="privateGame" id="privateGame" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <textarea class="hostWords" name="hostTextToCopy" id="hostTextToCopy" required placeholder="Entrez le texte à faire écrire" <?php echo $runningGame ? "readonly" : "" ?>></textarea>
+
+                        <input type="submit" class="input joinSubmit" id="<?php echo $runningGame ? "update" : "create" ?>Game" value="<?php echo $runningGame ? "Mettre à jour" : "Créer" ?> la partie" name="<?php echo $runningGame ? "update" : "create" ?>Game">
                     </form>
-                <?php } ?>
+                    <?php if (sizeof($games) == 1) { ?>
+                        <form method="post" class="stopGameForm">
+                            <input type="submit" class="input stopSubmit" id="stopGame" value="Arrêter la partie" name="stopGame">
+                        </form>
+                </div>
+            <?php } ?>
             </section>
             <section id="pastGames" class="hostSection">
                 <h2 class="hostSectionTitle">Parties précédemment créées</h2>

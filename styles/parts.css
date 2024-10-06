@@ -99,11 +99,61 @@
     background-color: var(--w);
     overflow-x: hidden;
 }
+
 .hostSectionTitle {
     margin: 0;
     padding: 5px;
     padding-left: 10px;
     background-color: var(--wv);
+}
+
+.hostSectionContent {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.saHostForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.saHostForm input, .saHostForm label, .saHostForm textarea {
+    width: 90%;
+    margin: 5px auto;
+}
+
+.saHostForm input, .saHostForm textarea {
+    font-size: medium;
+    background-color: var(--wvvv);
+    border: solid 1px var(--wv);
+    padding: 3px;
+    border-radius: 5px;
+    color: var(--n);
+}
+
+.saHostForm input:hover, .saHostForm textarea:hover,
+.saHostForm input:focus, .saHostForm textarea:focus {
+    background-color: var(--wvv);
+}
+
+.saHostForm textarea {
+    height: 10vh;
+    overflow-y: auto;
+}
+
+.saHostForm input[type=submit] {
+    cursor: pointer;
+}
+
+.saHostForm input[type=submit]:active {
+    background-color: var(--wv);
+}
+
+.privateGame {
+    font-size: 20px;
 }
 
 /* --- Admin --- */
