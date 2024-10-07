@@ -99,7 +99,10 @@
                     $num = 0;
                     foreach (array_reverse($oldgames) as $key => $value) {
                         $num++;
-                        $result = explode(";", $value["postStats"])
+                        if ($value["postStats"] != "")
+                            $result = explode(";", $value["postStats"]);
+                        else
+                            $result = ["50%", "Pas d'information supplémentaire"];
                     ?>
                         <div class="oldGame" id="gameN-<?php echo $num ?>" style="background: linear-gradient(90deg, var(--ov) <?php echo $result[0] ?>, var(--cv) <?php echo $result[0] ?>);">
                             <h4 class="oldGameName"><?php echo $value["name"] ?></h4>

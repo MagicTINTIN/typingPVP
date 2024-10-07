@@ -3,18 +3,31 @@ if (isset($_POST["hNameInput"], $_POST["hostTextToCopy"])) {
 
     $name = substr(htmlspecialchars($_POST["hNameInput"]), 0, 50);
     $code = isset($_POST["hCodeInput"]) ? substr(htmlspecialchars($_POST["hCodeInput"]), 0, 30) : "";
-    $visibility = isset($_POST["privateGame"]) ? (((bool) $_POST["privateGame"]) ? 0 : 1):1;
+    $visibility = isset($_POST["privateGame"]) ? (((bool) $_POST["privateGame"]) ? 0 : 1) : 1;
 
     if (isset($_POST["updateGame"])) {
-        if (!isset($_SESSION["info"])) $_SESSION["info"] = "Game pas update";
+        $sqlQuery = 'UPDATE tpvpGames SET code = :code, visibility = :visibility WHERE name = :name AND host = :host';
+
+        $updateGame = $db->prepare($sqlQuery);
+        $updateGame->execute([
+            'code' => $code,
+            'visibility' => $visibility,
+            'name' => $name,
+            'host' => $username
+        ]);
+        if ($updateGame->rowCount() == 1) {
+            if (!isset($_SESSION["info"])) $_SESSION["info"] = "Partie mise à jour";
+            else $_SESSION["info"] .= "\nPartie mise à jour";
+        } else $_SESSION["error"] = "Impossible de mettre la partie à jour !";
     } else if (isset($_POST["createGame"])) {
 
         // check if game with name already exists
-        $cpoiStatement = $db->prepare('SELECT gID FROM tpvpGames WHERE name = :name');
-        $cpoiStatement->execute([
-            'name' => $name
+        $gameStatement = $db->prepare('SELECT gID FROM tpvpGames WHERE name = :name AND visibility != :visibility');
+        $gameStatement->execute([
+            'name' => $name,
+            'visibility' => -1
         ]);
-        $codes = $cpoiStatement->fetchAll();
+        $codes = $gameStatement->fetchAll();
         if (sizeof($codes) > 0) {
             $_SESSION["tempName"] = "";
             $_SESSION["tempCode"] = $code;
