@@ -6,7 +6,7 @@
 }
 
 .unselectable,
-.hostAdminActionButton,
+.hostAdminActionButton, .aSaButton, input[type=submit]
 h1,
 h2,
 h3,
@@ -167,7 +167,8 @@ input:-webkit-autofill:active {
     border-width: 3px;
     border-style: solid;
 
-    background-color: var(--nv);
+    background-color: var(--wvvv);
+    color: var(--n);
 
     border-radius: 13px;
     padding: 10px;
@@ -195,7 +196,7 @@ input:-webkit-autofill:active {
 }
 
 .popUpContent {
-    color: var(--w);
+    color: var(--n);
 }
 
 #popUpErrorMessage {
@@ -213,7 +214,7 @@ input:-webkit-autofill:active {
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
-    color: var(--w);
+    color: var(--n);
     padding: 5px;
     transition: all .2s;
     cursor: pointer;
@@ -314,31 +315,31 @@ input:-webkit-autofill:active {
 
 .popUpConfirmSub {
     font-weight: bold;
-    border-color: var(--y);
+    border-color: var(--c);
     color: var(--n);
-    background-color: var(--yv);
+    background-color: var(--cv);
 }
 
 .popUpConfirmSub:hover {
-    box-shadow: 0 0 10px var(--y);
+    box-shadow: 0 0 10px var(--c);
 }
 
 .popUpConfirmSub:active {
-    background-color: var(--yv);
+    background-color: var(--c);
 }
 
 .cancelPopUp {
-    border-color: var(--w);
-    color: var(--w);
-    background-color: var(--nv);
+    border-color: var(--n);
+    color: var(--n);
+    background-color: var(--wvv);
 }
 
 .cancelPopUp:hover {
-    box-shadow: 0 0 10px var(--w);
+    box-shadow: 0 0 10px var(--n);
 }
 
 .cancelPopUp:active {
-    background-color: var(--n);
+    background-color: var(--w);
 }
 
 /* ----------- GENERAL CLASSES ----------- */

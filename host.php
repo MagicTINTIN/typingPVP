@@ -10,6 +10,7 @@ $db = dbConnect();
 
 include_once("includes/requests/crtUpdtGame.php");
 
+$SUB_SECTION = " - Host";
 include_once("includes/parts/head.php");
 
 include_once("includes/modules/errorHandler.php");

@@ -76,10 +76,11 @@
 
                         <input type="submit" class="input joinSubmit" id="<?php echo $runningGame ? "update" : "create" ?>Game" value="<?php echo $runningGame ? "Mettre à jour" : "Créer" ?> la partie" name="<?php echo $runningGame ? "update" : "create" ?>Game">
                     </form>
-                    <?php if (sizeof($games) == 1) { ?>
-                        <form method="post" class="stopGameForm">
+                    <?php if (sizeof($games) > 0) { ?>
+                        <!-- <form method="post" class="stopGameForm">
                             <input type="submit" class="input stopSubmit" id="stopGame" value="Arrêter la partie" name="stopGame">
-                        </form>
+                        </form> -->
+                        <span onclick="createMessage('confirm', 'Arrêter la partie ?', 'Êtes-vous sûr de vouloir arrêter la partie \'<?php echo $defaultName ?>\' ?', 'stopGame', 'Arrêter', 'gameToStop', '<?php echo $defaultName ?>')" class="aSaButton redButton">Arrêter la partie</span>
                 </div>
             <?php } ?>
             </section>

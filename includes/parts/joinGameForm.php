@@ -14,12 +14,12 @@
         $num = 0;
         foreach (array_reverse($games) as $key => $value) {
             $num++;
-            $result = explode(";", $value["postStats"])
+            // $result = explode(";", $value["postStats"])
         ?>
-            <div class="oldGame" id="gameN-<?php echo $num ?>" style="background: linear-gradient(90deg, var(--ov) <?php echo $result[0] ?>, var(--cv) <?php echo $result[0] ?>);">
+            <div class="oldGame" id="gameN-<?php echo $num ?>" style="background: linear-gradient(90deg, var(--ov) 50%, var(--cv) 50%);">
                 <h4 class="oldGameName"><?php echo $value["name"] ?></h4>
                 <span class="oldGameDate"><?php echo $value["started"] ?></span>
-                <p class="oldGameDescription"><?php echo $result[1] ?></p>
+                <p class="oldGameDescription"><?php echo "Partie en cours" ?></p>
             </div>
         <?php
         }

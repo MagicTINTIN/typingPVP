@@ -142,7 +142,7 @@
     justify-content: space-around;
 }
 
-.saHostForm input, .saHostForm label, .saHostForm textarea {
+.saHostForm input, .saHostForm label, .saHostForm textarea, .aSaButton {
     width: 90%;
     margin: 5px auto;
 }
@@ -181,6 +181,20 @@
 
 .privateGame {
     font-size: 20px;
+}
+
+.redButton {
+    background-color: var(--errBG);
+    border-color: var(--rd);
+    color: var(--errFG);
+}
+
+.redButton:hover {
+    background-color: var(--errBD);
+}
+
+.redButton:active {
+    background-color: var(--rv);
 }
 
 /* ----- SIDE ----- */

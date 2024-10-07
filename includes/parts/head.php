@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-    <title>TypingPVP</title>
+    <title>TypingPVP<?php echo isset($SUB_SECTION) ? $SUB_SECTION : "" ?></title>
 
     <script src="./scripts/commonhead.js"></script>
     <link href="./styles/vars.css" rel="stylesheet">
