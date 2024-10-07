@@ -42,7 +42,7 @@
                     <form method="post" class="saHostForm <?php echo $runningGame ? "update" : "create" ?>GameForm">
                         <input class="hostInput" type="text" value="<?php echo $runningGame ? $games[0]["name"] : "Partie de " . $username ?>" <?php echo $runningGame ? "readonly" : "" ?> required name="hNameInput" id="hNameInput" minlength="3" maxlength="50" placeholder="Nom de la partie">
 
-                        <input class="hostInput" type="text" name="hCodeInput" id="hCodeInput" minlength="3" maxlength="50" placeholder="Code pour accéder à la partie (facultatif)">
+                        <input class="hostInput" type="text" name="hCodeInput" id="hCodeInput" maxlength="30" placeholder="Code pour accéder à la partie (facultatif)">
 
                         <label class="container privateGame">Partie privée <span class="smaller">(nécessite d'avoir le nom de la partie pour rejoindre)</span>
                             <input name="privateGame" id="privateGame" type="checkbox">

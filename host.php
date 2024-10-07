@@ -8,6 +8,8 @@ include_once("includes/fcts/db.php");
 include_once("includes/fcts/time.php");
 $db = dbConnect();
 
+include_once("includes/requests/crtUpdtGame.php");
+
 include_once("includes/parts/head.php");
 
 include_once("includes/modules/errorHandler.php");
