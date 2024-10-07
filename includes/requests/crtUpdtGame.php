@@ -21,6 +21,7 @@ if (isset($_POST["hNameInput"], $_POST["hostTextToCopy"])) {
             $_SESSION["tempPrivate"] = $visibility == 1 ? false : true;
             $_SESSION["tempText"] = htmlspecialchars($_POST["hostTextToCopy"]);
             $_SESSION["error"] = "Nom de partie déjà pris !";
+            $_SESSION["tempPreviousForm"] = true;
 
             header("Location: ./host");
             exit();
@@ -37,9 +38,10 @@ if (isset($_POST["hNameInput"], $_POST["hostTextToCopy"])) {
         ]);
 
         // get gID
-        $cpoiStatement = $db->prepare('SELECT gID FROM tpvpGames WHERE name = :name');
+        $cpoiStatement = $db->prepare('SELECT gID FROM tpvpGames WHERE name = :name AND host = :host');
         $cpoiStatement->execute([
-            'name' => $name
+            'name' => $name,
+            'host' => $username
         ]);
 
         $codes = $cpoiStatement->fetchAll();
@@ -49,6 +51,7 @@ if (isset($_POST["hNameInput"], $_POST["hostTextToCopy"])) {
             $_SESSION["tempPrivate"] = $visibility == 1 ? false : true;
             $_SESSION["tempText"] = htmlspecialchars($_POST["hostTextToCopy"]);
             $_SESSION["error"] = "Une erreur est survenue !";
+            $_SESSION["tempPreviousForm"] = true;
 
             header("Location: ./host");
             exit();

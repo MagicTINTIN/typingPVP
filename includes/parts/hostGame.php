@@ -24,32 +24,55 @@
             <h1 class="hostTitle">Parties créées</h1>
             <section id="currentGame" class="hostSection">
                 <?php
-                $gamesStatement = $db->prepare('SELECT * FROM tpvpGames WHERE host=:host AND visibility=:visibility');
+                $gamesStatement = $db->prepare('SELECT * FROM tpvpGames WHERE host=:host AND visibility!=:visibility');
                 $gamesStatement->execute([
                     'host' => $username,
                     'visibility' => -1
                 ]);
 
+                $defaultName = "Partie de " . $username;
+                $defaultCode = "";
+                $defaultPrivate = false;
+                $defaultText = "";
+
                 $games = $gamesStatement->fetchAll();
                 $runningGame = false;
-                if (sizeof($games) == 0) {
-                } else {
+                if (sizeof($games) > 0) {
                     $runningGame = true;
+                    $defaultName = $games[0]["name"];
+                    $defaultCode = $games[0]["code"];
+                    $defaultPrivate = $games[0]["visibility"] == 1 ? false : true;
+                    $defaultText = "";
+                    // fetch all words
+                    $wordsStatement = $db->prepare('SELECT word FROM tpvpWords WHERE game=:game');
+                    $wordsStatement->execute([
+                        'game' => $games[0]["gID"]
+                    ]);
+                    $words = $wordsStatement->fetchAll();
+                    foreach ($words as $key => $w) {
+                        $defaultText .= $w["word"] . " ";
+                    }
+                } else if (isset($_SESSION["tempPreviousForm"])) {
+                    $defaultName = $_SESSION["tempName"];
+                    $defaultCode = $_SESSION["tempCode"];
+                    $defaultPrivate = $_SESSION["tempPrivate"];
+                    $defaultText = $_SESSION["tempText"];
+                    unset($_SESSION["tempPreviousForm"], $_SESSION["tempName"], $_SESSION["tempCode"], $_SESSION["tempPrivate"], $_SESSION["tempText"]);
                 };
                 ?>
                 <h2 class="hostSectionTitle"><?php echo $runningGame ? "Modifier la partie" : "Créer une partie" ?></h2>
                 <div class="hostSectionContent">
                     <form method="post" class="saHostForm <?php echo $runningGame ? "update" : "create" ?>GameForm">
-                        <input class="hostInput" type="text" value="<?php echo $runningGame ? $games[0]["name"] : "Partie de " . $username ?>" <?php echo $runningGame ? "readonly" : "" ?> required name="hNameInput" id="hNameInput" minlength="3" maxlength="50" placeholder="Nom de la partie">
+                        <input class="hostInput" type="text" value="<?php echo $defaultName  ?>" <?php echo $runningGame ? "readonly" : "" ?> required name="hNameInput" id="hNameInput" minlength="3" maxlength="50" placeholder="Nom de la partie">
 
-                        <input class="hostInput" type="text" name="hCodeInput" id="hCodeInput" maxlength="30" placeholder="Code pour accéder à la partie (facultatif)">
+                        <input class="hostInput" type="text" value="<?php echo $defaultCode ?>" name="hCodeInput" id="hCodeInput" maxlength="30" placeholder="Code pour accéder à la partie (facultatif)">
 
                         <label class="container privateGame">Partie privée <span class="smaller">(nécessite d'avoir le nom de la partie pour rejoindre)</span>
-                            <input name="privateGame" id="privateGame" type="checkbox">
+                            <input name="privateGame" id="privateGame" type="checkbox" <?php echo $defaultPrivate ? "checked" : "" ?>>
                             <span class="checkmark"></span>
                         </label>
 
-                        <textarea class="hostWords" name="hostTextToCopy" id="hostTextToCopy" required placeholder="Entrez le texte à faire écrire" <?php echo $runningGame ? "readonly" : "" ?>></textarea>
+                        <textarea class="hostWords" name="hostTextToCopy" id="hostTextToCopy" required placeholder="Entrez le texte à faire écrire" <?php echo $runningGame ? "readonly" : "" ?>><?php echo $defaultText ?></textarea>
 
                         <input type="submit" class="input joinSubmit" id="<?php echo $runningGame ? "update" : "create" ?>Game" value="<?php echo $runningGame ? "Mettre à jour" : "Créer" ?> la partie" name="<?php echo $runningGame ? "update" : "create" ?>Game">
                     </form>
