@@ -51,13 +51,13 @@ if (isset($_POST["hNameInput"], $_POST["hostTextToCopy"])) {
         ]);
 
         // get gID
-        $cpoiStatement = $db->prepare('SELECT gID FROM tpvpGames WHERE name = :name AND host = :host');
-        $cpoiStatement->execute([
+        $gameStatement = $db->prepare('SELECT gID FROM tpvpGames WHERE name = :name AND host = :host');
+        $gameStatement->execute([
             'name' => $name,
             'host' => $username
         ]);
 
-        $codes = $cpoiStatement->fetchAll();
+        $codes = $gameStatement->fetchAll();
         if (sizeof($codes) == 0) {
             $_SESSION["tempName"] = $name;
             $_SESSION["tempCode"] = $code;
@@ -89,6 +89,42 @@ if (isset($_POST["hNameInput"], $_POST["hostTextToCopy"])) {
     } else {
         if (!isset($_SESSION["error"])) $_SESSION["error"] = "Action inconnue";
     }
+    header("Location: ./host");
+    exit();
+} else if (isset($_POST["stopGame"], $_POST["gameToStop"])) {
+
+    $gameStatement = $db->prepare('SELECT gID FROM tpvpGames WHERE name = :name AND host = :host');
+    $gameStatement->execute([
+        'name' => htmlspecialchars($_POST["gameToStop"]),
+        'host' => $username
+    ]);
+
+    $games = $gameStatement->fetchAll();
+    if (sizeof($games) == 0) {
+        $_SESSION["error"] = "Impossible d'arrêter la partie !";
+        header("Location: ./host");
+        exit();
+    }
+    $currentGID = $games[0]["gID"];
+
+    $sqlQuery = 'UPDATE tpvpGames SET visibility = :visibility WHERE name = :name AND host = :host';
+
+    $updateGame = $db->prepare($sqlQuery);
+    $updateGame->execute([
+        'visibility' => -1,
+        'name' => htmlspecialchars($_POST["gameToStop"]),
+        'host' => $username
+    ]);
+
+    $gameStatement = $db->prepare('DELETE FROM tpvpWords WHERE game = :game');
+    $gameStatement->execute([
+        'game' => $currentGID
+    ]);
+
+    if ($updateGame->rowCount() == 1) {
+        if (!isset($_SESSION["info"])) $_SESSION["info"] = "Partie arrêtée";
+        else $_SESSION["info"] .= "\nPartie arrêtée";
+    } else $_SESSION["error"] = "Impossible de terminer la partie !";
     header("Location: ./host");
     exit();
 }
